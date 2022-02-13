@@ -22,7 +22,6 @@ Imports:
     purrr,
     rlang,
     dplyr,
-    readr,
-    httr2
+    readr
 URL: https://github.com/damarals/loteria
 BugReports: https://github.com/damarals/loteria/issues

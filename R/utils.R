@@ -15,7 +15,6 @@
 #' @export
 #'
 #' @importFrom glue glue
-#' @importFrom httr2 request req_headers req_perform resp_body_string
 #' @importFrom jsonlite read_json
 #'
 #' @examples
@@ -32,14 +31,7 @@ obter_json_sorteio <- function(id_concurso, modalidade) {
   )
   param_final <- ifelse(length(id_concurso) > 0, glue("//p=concurso={id_concurso}"), "")
   u <- glue('https://loterias.caixa.gov.br/wps/portal/loterias/landing/{modalidade}/!ut/p/a1/{codigos_modalidade[[modalidade]]}/res/id=buscaResultado/c=cacheLevelPage{param_final}')
-  request(u) %>%
-    req_headers("Host" = "loterias.caixa.gov.br",
-                "User-Agent" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0",
-                "Request-Id" = "|jiqfG.muZiF",
-                "Connection" = "keep-alive",
-                "Referer" = "http://loterias.caixa.gov.br/wps/portal/loterias/landing/megasena",
-                "Cookie" = "_pk_id.4.968f=1118fd41ebca69b5.1644245163.12.1644767132.1644766902.; _pk_ref.4.968f=%5B%22%22%2C%22%22%2C1644766902%2C%22https%3A%2F%2Fwww.google.com%2F%22%5D; _fbp=fb.2.1644245163455.210300274; _ga=GA1.4.1759838994.1644245164; _ga=GA1.3.1427735449.1644245187; __uzma=6486b949-b31d-4ee6-9665-aa83f791363b; __uzmb=1644464092; __uzmc=3785040615473; __uzmd=1644767131; ai_user=AZdYh|2022-02-10T03:34:52.254Z; _gid=GA1.4.967139367.1644722587; _gid=GA1.3.1634177439.1644724183; security=true; JSESSIONID=0000Qw3gP1_k89HC9-Uar76RO_B:19790cild; ai_session=daOkw|1644766901943|1644767131869; _pk_ses.4.968f=*; _gat_UA-85357028-1=1") %>%
-    req_perform() %>% resp_body_string() %>% read_json(simplifyVector = TRUE)
+  read_json(u, simplifyVector = TRUE)
 }
 
 #' Obtem o resultado de um sorteio especifico de uma

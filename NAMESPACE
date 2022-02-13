@@ -3,7 +3,7 @@
 export("%>%")
 export(dados_sorteios)
 export(necessario_atualizar)
-export(obter_url_sorteio)
+export(obter_json_sorteio)
 export(resultado_loteria)
 export(resultado_loteria_todos)
 importFrom(dplyr,pull)
