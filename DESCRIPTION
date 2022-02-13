@@ -23,3 +23,5 @@ Imports:
     rlang,
     dplyr,
     readr
+URL: https://github.com/damarals/loteria
+BugReports: https://github.com/damarals/loteria/issues
