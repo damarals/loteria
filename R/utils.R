@@ -31,7 +31,7 @@ obter_json_sorteio <- function(id_concurso, modalidade) {
   )
   param_final <- ifelse(length(id_concurso) > 0, glue("//p=concurso={id_concurso}"), "")
   u <- glue('https://loterias.caixa.gov.br/wps/portal/loterias/landing/{modalidade}/!ut/p/a1/{codigos_modalidade[[modalidade]]}/res/id=buscaResultado/c=cacheLevelPage{param_final}')
-  read_json(u, simplifyVector = TRUE)
+  read_json('https://jsonplaceholder.typicode.com/todos/1', simplifyVector = TRUE)
 }
 
 #' Obtem o resultado de um sorteio especifico de uma
