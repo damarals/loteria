@@ -1,0 +1,51 @@
+on:
+  schedule:
+  - cron: "0 0 * * *"
+  push:
+    branches:
+      - master
+
+name: update-data
+
+jobs:
+  render:
+    name: update-data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Install rmarkdown, remotes, and the local package
+        run: |
+          install.packages("remotes")
+          remotes::install_local(".")
+          remotes::install_cran("usethis")
+          remotes::install_cran("rmarkdown")
+        shell: Rscript {0}
+      - name: Execute Script
+        run: |
+          Rscript data-raw/atualizar_sorteios.R
+      - name: Commit results
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add data/diadesorte.rda
+          git add data/duplasena.rda
+          git add data/lotofacil.rda
+          git add data/lotomania.rda
+          git add data/megasena.rda
+          git add data/quina.rda
+          git add data/supersete.rda
+          git add inst/extdata/diadesorte.csv
+          git add inst/extdata/duplasena.csv
+          git add inst/extdata/lotofacil.csv
+          git add inst/extdata/lotomania.csv
+          git add inst/extdata/megasena.csv
+          git add inst/extdata/quina.csv
+          git add inst/extdata/supersete.csv
+          git add README.md
+          git add README.Rmd
+          git commit -m 'sorteios atualizados' || echo "sorteios atualizados"
+          git push origin || echo "sorteios atualizados"

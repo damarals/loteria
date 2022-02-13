@@ -1,5 +1,7 @@
 install.packages(".")
 
+library(magrittr, include.only = "%>%")
+
 modalidades <- c('megasena', 'lotofacil', 'quina', 'lotomania',
                  'duplasena', 'diadesorte', 'supersete')
 
@@ -24,3 +26,5 @@ try(usethis::use_data(lotomania, overwrite = TRUE), silent = TRUE)
 try(usethis::use_data(duplasena, overwrite = TRUE), silent = TRUE)
 try(usethis::use_data(diadesorte, overwrite = TRUE), silent = TRUE)
 try(usethis::use_data(supersete, overwrite = TRUE), silent = TRUE)
+
+rmarkdown::render("README.Rmd")
