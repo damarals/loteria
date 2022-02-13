@@ -1,5 +1,3 @@
-install.packages(".")
-
 library(magrittr, include.only = "%>%")
 
 modalidades <- c('megasena', 'lotofacil', 'quina', 'lotomania',
