@@ -13,7 +13,7 @@ purrr::walk(modalidades, function(modalidade) {
         resultado_loteria_todos(modalidade, min_concurso = max_concurso_offline)
       ) %>% dplyr::distinct()
     assign(modalidade, modalidade_atualizada, envir = .GlobalEnv)
-    readr::write_csv(modalidade_atualizada, glue::glue('{modalidade}.csv'))
+    readr::write_csv(modalidade_atualizada, glue::glue('inst/{modalidade}.csv'))
   }
 })
 
