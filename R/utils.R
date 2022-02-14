@@ -30,8 +30,8 @@ obter_json_sorteio <- function(id_concurso, modalidade) {
     supersete = 'jc5BDsIgEAXQs3gCPralsISSAFK1XaiVjWFlSLS6MJ5fbNxanVnN5P3kk0AGEsb4TOf4SLcxXt53YCdrPKfcwHOtGvTdfiMK31OgzOCYQWOkLesW-cOXcFpZXYs14Nh_eXwZiV_5AwkTYbSFhcHKdE0FudVKoMiL6gPmKk5gpsP9uhuQ3OIFKJSbBA!!/dl5/d5/L2dBISEvZ0FBIS9nQSEh/pw/Z7_HGK818G0K85260Q5OIRSC420K6'
   )
   param_final <- ifelse(length(id_concurso) > 0, glue("//p=concurso={id_concurso}"), "")
-  u <- glue('https://loterias.caixa.gov.br/wps/portal/loterias/landing/{modalidade}/!ut/p/a1/{codigos_modalidade[[modalidade]]}/res/id=buscaResultado/c=cacheLevelPage{param_final}')
-  read_json('https://jsonplaceholder.typicode.com/todos/1', simplifyVector = TRUE)
+  u <- glue('http://www.loterias.caixa.gov.br/wps/portal/loterias/landing/{modalidade}/!ut/p/a1/{codigos_modalidade[[modalidade]]}/res/id=buscaResultado/c=cacheLevelPage{param_final}?timestampAjax=1644848229270')
+  read_json(u, simplifyVector = TRUE)
 }
 
 #' Obtem o resultado de um sorteio especifico de uma
