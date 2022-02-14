@@ -31,7 +31,8 @@ obter_json_sorteio <- function(id_concurso, modalidade) {
   )
   param_final <- ifelse(length(id_concurso) > 0, glue("//p=concurso={id_concurso}"), "")
   u <- glue('http://www.loterias.caixa.gov.br/wps/portal/loterias/landing/{modalidade}/!ut/p/a1/{codigos_modalidade[[modalidade]]}/res/id=buscaResultado/c=cacheLevelPage{param_final}?timestampAjax=1644848229270')
-  read_json(u, simplifyVector = TRUE)
+  #read_json(u, simplifyVector = TRUE)
+  httr::GET(u)
 }
 
 #' Obtem o resultado de um sorteio especifico de uma
