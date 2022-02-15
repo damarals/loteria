@@ -5,6 +5,7 @@ modalidades <- list(megasena = 'mega-sena', lotofacil = 'lotofacil', quina = 'qu
                     diadesorte = 'dia-de-sorte', supersete = 'super-sete')
 
 purrr::walk(names(modalidades), function(modalidade) {
+  message(glue::glue('atualizando sorteios da modalidade {modalidade}'))
   if(loteria::necessario_atualizar(modalidade)) {
     max_concurso_offline <- loteria::dados_sorteios(modalidade) %>%
       dplyr::pull(concurso) %>% max
