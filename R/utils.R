@@ -31,7 +31,9 @@ resultado_loteria <- function(concurso = NULL, modalidade) {
     rvest::html_element(xpath = "//div[@class='result__draw']//strong") %>%
     rvest::html_text2()
   dezenas <- page_html %>%
-    rvest::html_element(xpath = "//div[@class='result__tens-grid']") %>%
+    rvest::html_element(xpath = ifelse(modalidade == "supersete",
+                                       "//div[@class='result__supersete-grid']",
+                                       "//div[@class='result__tens-grid']")) %>%
     rvest::html_text2()
   n_dezenas <- stringr::str_count(dezenas, "\n") + 1
   tibble::tibble(
@@ -92,7 +94,7 @@ resultado_loteria_todos <- function(modalidade, min_concurso = 1) {
 necessario_atualizar <- function(modalidade) {
   max_concurso_online <- resultado_loteria(modalidade = modalidade) %>%
     magrittr::extract2('concurso')
-  max_concurso_offline <- loteria::dados_sorteios(modalidade) %>%
+  max_concurso_offline <- dados_sorteios(modalidade) %>%
     dplyr::pull(concurso) %>% max
   max_concurso_online != max_concurso_offline
 }
