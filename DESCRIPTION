@@ -1,10 +1,15 @@
 Package: loteria
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Base de dados dos sorteios das loterias Caixa
+Version: 0.9.0.0000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person(given = "Daniel",
+           family = "Amaral",
+           role = c("aut", "cre"),
+           email = "silva.daniel86@Gmail.com",
+           comment = c(ORCID = "0000-0001-8758-0973"))
+Description: Este pacote disponibiliza uma base de dados contendo os 
+    sorteios atualizados das principais modalidades das loterias CAIXA: 
+    Mega Sena, Dupla Sena, Lotomania, Quina, etc.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
