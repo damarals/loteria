@@ -13,7 +13,6 @@ Depends:
     R (>= 2.10)
 LazyData: true
 Imports: 
-    jsonlite,
     glue,
     magrittr,
     tibble,
@@ -22,6 +21,8 @@ Imports:
     purrr,
     rlang,
     dplyr,
-    readr
+    readr,
+    rvest,
+    stringr
 URL: https://github.com/damarals/loteria
 BugReports: https://github.com/damarals/loteria/issues

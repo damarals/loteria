@@ -5,10 +5,10 @@
 \title{Obtem o resultado de um sorteio especifico de uma
 modalidade de loteria}
 \usage{
-resultado_loteria(id_concurso, modalidade)
+resultado_loteria(concurso = NULL, modalidade)
 }
 \arguments{
-\item{id_concurso}{numero do concurso do sorteio}
+\item{concurso}{numero do concurso do sorteio}
 
 \item{modalidade}{modalidade do sorteio, disponiveis:
 \itemize{
@@ -29,5 +29,5 @@ Obtem o resultado de um sorteio especifico de uma
 modalidade de loteria
 }
 \examples{
-resultado_loteria(id_concurso = 1, modalidade = 'megasena')
+resultado_loteria(concurso = 1, modalidade = 'megasena')
 }

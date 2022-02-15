@@ -6,8 +6,7 @@ modalidades <- c('megasena', 'lotofacil', 'quina', 'lotomania',
 purrr::walk(modalidades, function(modalidade) {
   if(loteria::necessario_atualizar(modalidade)) {
     max_concurso_offline <- loteria::dados_sorteios(modalidade) %>%
-      dplyr::pull(id_concurso) %>% max
-    print(max_concurso_offline)
+      dplyr::pull(concurso) %>% max
     modalidade_atualizada <- loteria::dados_sorteios(modalidade) %>%
       dplyr::bind_rows(
         resultado_loteria_todos(modalidade, min_concurso = max_concurso_offline)
