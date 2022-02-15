@@ -23,6 +23,7 @@ Imports:
     dplyr,
     readr,
     rvest,
-    stringr
+    stringr,
+    httr2
 URL: https://github.com/damarals/loteria
 BugReports: https://github.com/damarals/loteria/issues

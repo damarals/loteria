@@ -23,6 +23,10 @@ resultado_loteria <- function(concurso = NULL, modalidade) {
   param_final <- ifelse(is.null(concurso), '', glue::glue('?drawNumber={concurso}'))
   u <- glue::glue('https://www.megaloterias.com.br/{modalidades[[modalidade]]}/resultados{param_final}')
   page_html <- u %>%
+    httr2::request() %>%
+    httr2::req_retry(max_tries = 5) %>%
+    httr2::req_perform() %>%
+    httr2::resp_body_raw() %>%
     rvest::read_html()
   data <- page_html %>%
     rvest::html_element(xpath = "//div[@class='result__draw-date']//strong") %>%
@@ -67,6 +71,7 @@ resultado_loteria_todos <- function(modalidade, min_concurso = 1) {
   min_concurso:max_concurso %>%
     purrr::set_names() %>%
     purrr::map_dfr(function(x) {
+      print(x)
       resultado_loteria(concurso = x, modalidade = modalidade)
     }) %>%
     purrr::discard(~all(is.na(.x))) %>%
