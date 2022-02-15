@@ -64,7 +64,7 @@ resultado_loteria_todos <- function(modalidade, min_concurso = 1) {
     magrittr::extract2('concurso')
   min_concurso:max_concurso %>%
     purrr::set_names() %>%
-    purrr::map_dfr(\(x) {
+    purrr::map_dfr(function(x) {
       message(glue::glue('{modalidade} [{x}/{max_concurso}]'))
       resultado_loteria(concurso = x, modalidade = modalidade)
     }) %>%
