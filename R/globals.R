@@ -1,2 +1,2 @@
 #" @import utils
-utils::globalVariables(c("concurso", "dezena"))
+utils::globalVariables(c("concurso", "dezena", "data"))

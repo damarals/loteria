@@ -10,8 +10,8 @@ purrr::walk(names(modalidades), function(modalidade) {
       dplyr::pull(concurso) %>% max
     modalidade_atualizada <- loteria::dados_sorteios(modalidade) %>%
       dplyr::bind_rows(
-        resultado_loteria_todos(modalidades[[modalidade]],
-                                min_concurso = max_concurso_offline)
+        loteria::resultado_loteria_todos(modalidade = modalidade,
+                                         min_concurso = max_concurso_offline)
       ) %>% dplyr::distinct()
     assign(modalidade, modalidade_atualizada, envir = .GlobalEnv)
     readr::write_csv(modalidade_atualizada, glue::glue('inst/extdata/{modalidade}.csv'))

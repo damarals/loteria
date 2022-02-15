@@ -68,7 +68,8 @@ resultado_loteria_todos <- function(modalidade, min_concurso = 1) {
       message(glue::glue('{modalidade} [{x}/{max_concurso}]'))
       resultado_loteria(concurso = x, modalidade = modalidade)
     }) %>%
-    purrr::discard(~all(is.na(.x)))
+    purrr::discard(~all(is.na(.x))) %>%
+    dplyr::mutate_at(dplyr::vars(dplyr::contains('dezena')), as.integer)
 }
 
 #' Verifica se ha novos sorteios a serem coletados no dataset
@@ -91,8 +92,7 @@ resultado_loteria_todos <- function(modalidade, min_concurso = 1) {
 necessario_atualizar <- function(modalidade) {
   max_concurso_online <- resultado_loteria(modalidade = modalidade) %>%
     magrittr::extract2('concurso')
-  max_concurso_offline <- glue::glue('{modalidade}') %>%
-    rlang::sym() %>% eval %>%
+  max_concurso_offline <- loteria::dados_sorteios(modalidade) %>%
     dplyr::pull(concurso) %>% max
   max_concurso_online != max_concurso_offline
 }
