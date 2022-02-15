@@ -118,5 +118,5 @@ necessario_atualizar <- function(modalidade) {
 dados_sorteios <- function(modalidade) {
   readr::read_csv(
     glue::glue("https://github.com/damarals/loteria/raw/master/inst/extdata/{modalidade}.csv"),
-    show_col_types = FALSE)
+    col_types = readr::cols())
 }
