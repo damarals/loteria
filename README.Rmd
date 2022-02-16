@@ -17,9 +17,10 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/damarals/loteria/workflows/R-CMD-check/badge.svg)](https://github.com/damarals/loteria/actions) [![update-data](https://github.com/damarals/loteria/actions/workflows/update-data.yaml/badge.svg)](https://github.com/damarals/loteria/actions/workflows/update-data.yaml)
+[![Codecov test coverage](https://codecov.io/gh/damarals/loteria/branch/master/graph/badge.svg)](https://app.codecov.io/gh/damarals/loteria?branch=master)
 <!-- badges: end -->
 
-O objetivo deste pacote é disponibilizar os sorteios atualizados das principais modalidades das loterias CAIXA: Mega Sena, Dupla Sena, Lotomania, Quina, etc. O pacote é atualizado diariamente através de um workflow com [GitHub Actions](https://github.com/beatrizmilz/mananciais/actions).
+O objetivo deste pacote é disponibilizar os sorteios atualizados das principais modalidades das loterias CAIXA: Mega Sena, Dupla Sena, Lotomania, Quina, etc. O pacote é atualizado diariamente através de um workflow com [GitHub Actions](https://github.com/damarals/loteria/actions).
 
 Os dados foram obtidos no [Portal Mega Loterias](https://www.megaloterias.com.br).
 

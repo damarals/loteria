@@ -1,6 +1,6 @@
 on:
   schedule:
-  - cron: "0 0 * * *"
+  - cron: "0 3 * * *"
   push:
     branches:
       - master
@@ -40,5 +40,5 @@ jobs:
           git add inst/extdata/.
           git add README.md
           git add README.Rmd
-          git commit -m 'sorteios atualizados' || echo "sorteios atualizados"
+          git commit -m ':robot: sorteios atualizados' || echo "sorteios atualizados"
           git push origin || echo "sorteios atualizados"
