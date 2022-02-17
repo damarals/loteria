@@ -1,9 +1,9 @@
 test_that("Funcao dados_sorteios esta funcionando corretamente", {
   ndezenas_modalidades <- list(megasena = 6, lotofacil = 15,
-                               quina = 5, lotomania = 20, duplasena = 6,
+                               quina = 5, lotomania = 20, duplasena = 12,
                                diadesorte = 7, supersete = 7)
 
-  purrr::walk(length(ndezenas_modalidades), function(modalidade) {
+  purrr::walk(names(ndezenas_modalidades), function(modalidade) {
     # Executar a funcao uma vez
     da_sorteio <- dados_sorteios(modalidade)
 

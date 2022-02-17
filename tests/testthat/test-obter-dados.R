@@ -1,9 +1,9 @@
 test_that("Funcao resultado_loteria esta funcionando corretamente", {
   ndezenas_modalidades <- list(megasena = 6, lotofacil = 15,
-                               quina = 5, lotomania = 20, duplasena = 6,
+                               quina = 5, lotomania = 20, duplasena = 12,
                                diadesorte = 7, supersete = 7)
 
-  purrr::walk(length(ndezenas_modalidades), function(modalidade) {
+  purrr::walk(names(ndezenas_modalidades), function(modalidade) {
     # Executar a funcao uma vez
     da_sorteio <- resultado_loteria(1, modalidade)
 
@@ -17,7 +17,7 @@ test_that("Funcao resultado_loteria esta funcionando corretamente", {
     expect_false(any(is.na(da_sorteio)))
 
     # Testar numero de linhas
-    expect_gt(nrow(da_sorteio), 1)
+    expect_equal(nrow(da_sorteio), 1)
 
     # Testar classe das variáveis
     expect_s3_class(da_sorteio$data, "Date")

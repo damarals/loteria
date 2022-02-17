@@ -123,7 +123,7 @@ dados_sorteios <- function(modalidade) {
                          lotofacil = paste0('Di', strrep('i', 15)),
                          quina = paste0('Di', strrep('i', 5)),
                          lotomania = paste0('Di', strrep('i', 20)),
-                         duplasena = paste0('Di', strrep('i', 6)),
+                         duplasena = paste0('Di', strrep('i', 12)),
                          diadesorte = paste0('Di', strrep('i', 7)),
                          supersete = paste0('Di', strrep('i', 7)))
   readr::read_csv(
