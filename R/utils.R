@@ -61,15 +61,19 @@ resultado_loteria <- function(concurso = NULL, modalidade) {
 #'   * diadesorte
 #'   * supersete
 #' @param min_concurso numero do concurso de partida, padrao: 1
+#' @param max_concurso numero maximo do concurso, padrao: ultimo sorteio
 #'
 #' @return uma \code{tibble}
 #' @export
 #'
 #' @examples
 #' resultado_loteria_todos(modalidade = 'megasena', min_concurso = 2452)
-resultado_loteria_todos <- function(modalidade, min_concurso = 1) {
-  max_concurso <- resultado_loteria(modalidade = modalidade) %>%
-    magrittr::extract2('concurso')
+resultado_loteria_todos <- function(modalidade, min_concurso = 1,
+                                    max_concurso = NULL) {
+  if(is.null(max_concurso)) {
+    max_concurso <- resultado_loteria(modalidade = modalidade) %>%
+      magrittr::extract2('concurso')
+  }
   min_concurso:max_concurso %>%
     purrr::set_names() %>%
     purrr::map_dfr(function(x) resultado_loteria(x, modalidade)) %>%

@@ -5,7 +5,7 @@
 \title{Obtem o resultado de todos os sorteios até a data atual
 de uma modalidade de loteria, ou partindo de um concurso}
 \usage{
-resultado_loteria_todos(modalidade, min_concurso = 1)
+resultado_loteria_todos(modalidade, min_concurso = 1, max_concurso = NULL)
 }
 \arguments{
 \item{modalidade}{modalidade do sorteio, disponiveis:
@@ -20,6 +20,8 @@ resultado_loteria_todos(modalidade, min_concurso = 1)
 }}
 
 \item{min_concurso}{numero do concurso de partida, padrao: 1}
+
+\item{max_concurso}{numero maximo do concurso, padrao: ultimo sorteio}
 }
 \value{
 uma \code{tibble}
