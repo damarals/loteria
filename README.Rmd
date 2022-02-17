@@ -36,3 +36,39 @@ __Caso você não utilize R__, é possível __fazer download da base de dados__ 
   
   
 Os arquivos foram salvos com encoding UTF-8, e separados por ponto-e-vírgula.  
+
+## Instalação
+
+Este pacote pode ser instalado através do  [GitHub](https://github.com/) utilizando o seguinte código em `R`:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("damarals/loteria")
+library(loteria)
+```
+## Como usar?
+
+Caso você tenha conexão à internet, é possível buscar a base atualizada usando a função `dados_sorteios()`:
+
+```{r}
+dados_megasena <- loteria::dados_sorteios(modalidade = 'megasena') 
+```
+
+Caso você não tenha conexão à internet, você pode utilizar a base
+disponível no pacote. Porém as mesmas estarão atualizadas até a data em
+que você instalou (ou atualizou) o pacote. 
+
+Abaixo segue um exemplo da base disponível:
+
+```{r example}
+dplyr::glimpse(loteria::megasena)
+```
+
+### Exemplo de tabela
+
+```{r eval=TRUE, message=FALSE, warning=FALSE, include=TRUE}
+library(magrittr)
+dados_megasena %>% 
+  tail(5) %>%
+  knitr::kable() 
+```

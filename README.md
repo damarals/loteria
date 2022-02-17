@@ -23,20 +23,77 @@ Loterias](https://www.megaloterias.com.br).
 **Caso você não utilize R**, é possível **fazer download da base de
 dados** através dos seguintes links:
 
-  - *Mega Sena* [Arquivo
+-   *Mega Sena* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/megasena.csv)
-  - *Dupla Sena* [Arquivo
+-   *Dupla Sena* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/duplasena.csv)
-  - *Lotofacil* [Arquivo
+-   *Lotofacil* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/lotofacil.csv)
-  - *Lotomania* [Arquivo
+-   *Lotomania* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/lotomania.csv)
-  - *Quina* [Arquivo
+-   *Quina* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/quina.csv)
-  - *Super Sete* [Arquivo
+-   *Super Sete* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/supersete.csv)
-  - *Dia de Sorte* [Arquivo
+-   *Dia de Sorte* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/diadesorte.csv)
 
 Os arquivos foram salvos com encoding UTF-8, e separados por
 ponto-e-vírgula.
+
+## Instalação
+
+Este pacote pode ser instalado através do [GitHub](https://github.com/)
+utilizando o seguinte código em `R`:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("damarals/loteria")
+library(loteria)
+```
+
+## Como usar?
+
+Caso você tenha conexão à internet, é possível buscar a base atualizada
+usando a função `dados_sorteios()`:
+
+``` r
+dados_megasena <- loteria::dados_sorteios(modalidade = 'megasena') 
+```
+
+Caso você não tenha conexão à internet, você pode utilizar a base
+disponível no pacote. Porém as mesmas estarão atualizadas até a data em
+que você instalou (ou atualizou) o pacote.
+
+Abaixo segue um exemplo da base disponível:
+
+``` r
+dplyr::glimpse(loteria::megasena)
+#> Rows: 2,454
+#> Columns: 8
+#> $ data     <date> 1996-03-11, 1996-03-18, 1996-03-25, 1996-04-01, 1996-04-08, ~
+#> $ concurso <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18~
+#> $ dezena_1 <int> 4, 9, 10, 1, 1, 7, 3, 4, 8, 4, 15, 4, 18, 2, 12, 20, 6, 23, 5~
+#> $ dezena_2 <int> 5, 37, 11, 5, 2, 13, 5, 17, 43, 18, 25, 16, 32, 16, 33, 32, 1~
+#> $ dezena_3 <int> 30, 39, 29, 6, 6, 19, 20, 37, 54, 21, 37, 19, 47, 23, 35, 34,~
+#> $ dezena_4 <int> 33, 41, 30, 27, 16, 22, 21, 38, 55, 25, 38, 20, 50, 27, 51, 4~
+#> $ dezena_5 <int> 41, 43, 36, 42, 19, 40, 38, 47, 56, 38, 58, 27, 54, 47, 52, 5~
+#> $ dezena_6 <int> 52, 49, 47, 59, 46, 47, 56, 53, 60, 57, 59, 43, 56, 53, 60, 6~
+```
+
+### Exemplo de tabela
+
+``` r
+library(magrittr)
+dados_megasena %>% 
+  tail(5) %>%
+  knitr::kable() 
+```
+
+| data       | concurso | dezena_1 | dezena_2 | dezena_3 | dezena_4 | dezena_5 | dezena_6 |
+|:-----------|---------:|---------:|---------:|---------:|---------:|---------:|---------:|
+| 2022-02-02 |     2450 |        2 |        6 |       11 |       15 |       17 |       39 |
+| 2022-02-05 |     2451 |       13 |       26 |       31 |       46 |       51 |       60 |
+| 2022-02-09 |     2452 |        8 |       10 |       51 |       56 |       57 |       58 |
+| 2022-02-12 |     2453 |       10 |       14 |       15 |       24 |       34 |       44 |
+| 2022-02-16 |     2454 |        9 |       14 |       22 |       24 |       44 |       47 |
