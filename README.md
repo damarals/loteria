@@ -17,25 +17,25 @@ Lotomania, Quina, etc. O pacote é atualizado diariamente através de um
 workflow com [GitHub
 Actions](https://github.com/damarals/loteria/actions).
 
-Os dados foram obtidos no [Portal Mega
+Os dados foram obtidos do [Portal Mega
 Loterias](https://www.megaloterias.com.br).
 
 **Caso você não utilize R**, é possível **fazer download da base de
 dados** através dos seguintes links:
 
-  - *Mega Sena* [Arquivo
+-   *Mega Sena* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/megasena.csv)
-  - *Dupla Sena* [Arquivo
+-   *Dupla Sena* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/duplasena.csv)
-  - *Lotofacil* [Arquivo
+-   *Lotofacil* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/lotofacil.csv)
-  - *Lotomania* [Arquivo
+-   *Lotomania* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/lotomania.csv)
-  - *Quina* [Arquivo
+-   *Quina* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/quina.csv)
-  - *Super Sete* [Arquivo
+-   *Super Sete* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/supersete.csv)
-  - *Dia de Sorte* [Arquivo
+-   *Dia de Sorte* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/diadesorte.csv)
 
 Os arquivos foram salvos com encoding UTF-8, e separados por

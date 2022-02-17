@@ -27,24 +27,26 @@ resultado_loteria <- function(concurso = NULL, modalidade) {
     httr2::req_retry(max_tries = 5) %>%
     httr2::req_perform() %>%
     httr2::resp_body_raw() %>%
-    rvest::read_html()
+    rvest::read_html() %>%
+    rvest::html_element(xpath = "//section[contains(@class, 'lottery-totem')]")
   data <- page_html %>%
-    rvest::html_element(xpath = "//div[@class='result__draw-date']//strong") %>%
+    rvest::html_element(xpath = ".//div[@class='result__draw-date']//strong") %>%
     rvest::html_text2()
   concurso <- page_html %>%
-    rvest::html_element(xpath = "//div[@class='result__draw']//strong") %>%
+    rvest::html_element(xpath = ".//div[@class='result__draw']//strong") %>%
     rvest::html_text2()
   dezenas <- page_html %>%
-    rvest::html_element(xpath = ifelse(modalidade == "supersete",
-                                       "//div[@class='result__supersete-grid']",
-                                       "//div[@class='result__tens-grid']")) %>%
-    rvest::html_text2()
+    rvest::html_elements(xpath = ifelse(modalidade == "supersete",
+                                        ".//div[@class='result__supersete-grid']//span",
+                                        ".//div[@class='result__tens-grid']")) %>%
+    rvest::html_text2() %>% paste0(collapse = '\n')
   n_dezenas <- stringr::str_count(dezenas, "\n") + 1
   tibble::tibble(
     data = lubridate::dmy(data),
     concurso = as.integer(concurso),
-    dezena = dezenas
-  ) %>% tidyr::separate(dezena, sep = "\n", into = paste0('dezena_', 1:n_dezenas))
+    dezena = dezenas) %>%
+    tidyr::separate(dezena, sep = "\n", into = paste0('dezena_', 1:n_dezenas)) %>%
+    dplyr::mutate_at(dplyr::vars(dplyr::contains('dezena')), as.integer)
 }
 
 #' Obtem o resultado de todos os sorteios até a data atual
@@ -70,11 +72,8 @@ resultado_loteria_todos <- function(modalidade, min_concurso = 1) {
     magrittr::extract2('concurso')
   min_concurso:max_concurso %>%
     purrr::set_names() %>%
-    purrr::map_dfr(function(x) {
-      resultado_loteria(concurso = x, modalidade = modalidade)
-    }) %>%
-    purrr::discard(~all(is.na(.x))) %>%
-    dplyr::mutate_at(dplyr::vars(dplyr::contains('dezena')), as.integer)
+    purrr::map_dfr(function(x) resultado_loteria(x, modalidade)) %>%
+    purrr::discard(~all(is.na(.x)))
 }
 
 #' Verifica se ha novos sorteios a serem coletados no dataset
@@ -120,7 +119,15 @@ necessario_atualizar <- function(modalidade) {
 #' @examples
 #' dados_sorteios(modalidade = 'megasena')
 dados_sorteios <- function(modalidade) {
+  ct_modalidades <- list(megasena = paste0('Di', strrep('i', 6)),
+                         lotofacil = paste0('Di', strrep('i', 15)),
+                         quina = paste0('Di', strrep('i', 5)),
+                         lotomania = paste0('Di', strrep('i', 20)),
+                         duplasena = paste0('Di', strrep('i', 6)),
+                         diadesorte = paste0('Di', strrep('i', 7)),
+                         supersete = paste0('Di', strrep('i', 7)))
   readr::read_csv(
     glue::glue("https://github.com/damarals/loteria/raw/master/inst/extdata/{modalidade}.csv"),
-    col_types = readr::cols())
+    locale = readr::locale(encoding = "UTF-8"),
+    col_types = ct_modalidades[[modalidade]])
 }

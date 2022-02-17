@@ -33,4 +33,6 @@ Imports:
 URL: https://github.com/damarals/loteria
 BugReports: https://github.com/damarals/loteria/issues
 Suggests: 
+    testthat (>= 3.0.0),
     covr
+Config/testthat/edition: 3

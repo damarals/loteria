@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 O objetivo deste pacote é disponibilizar os sorteios atualizados das principais modalidades das loterias CAIXA: Mega Sena, Dupla Sena, Lotomania, Quina, etc. O pacote é atualizado diariamente através de um workflow com [GitHub Actions](https://github.com/damarals/loteria/actions).
 
-Os dados foram obtidos no [Portal Mega Loterias](https://www.megaloterias.com.br).
+Os dados foram obtidos do [Portal Mega Loterias](https://www.megaloterias.com.br).
 
 __Caso você não utilize R__, é possível __fazer download da base de dados__ através dos seguintes links:
 
