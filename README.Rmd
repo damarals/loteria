@@ -24,7 +24,7 @@ O objetivo deste pacote é disponibilizar os sorteios atualizados das principais
 
 Os dados foram obtidos do [Portal Mega Loterias](https://www.megaloterias.com.br).
 
-__Caso você não utilize R__, é possível __fazer download da base de dados__ através dos seguintes links:
+__Caso você não utilize R__, é possível __fazer download das bases de dados__ através dos seguintes links:
 
   - *Mega Sena* [Arquivo `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/megasena.csv) 
   - *Dupla Sena* [Arquivo `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/duplasena.csv) 
@@ -35,7 +35,7 @@ __Caso você não utilize R__, é possível __fazer download da base de dados__ 
   - *Dia de Sorte* [Arquivo `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/diadesorte.csv) 
   
   
-Os arquivos foram salvos com encoding UTF-8, e separados por ponto-e-vírgula.  
+Os arquivos foram salvos com encoding UTF-8 e separados por vírgula.  
 
 ## Instalação
 
