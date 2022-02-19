@@ -23,6 +23,11 @@ test_that("Funcao dados_sorteios esta funcionando corretamente", {
     # Testar classe das variáveis
     expect_s3_class(da_sorteio$data, "Date")
     expect_type(da_sorteio$concurso, "integer")
+    if(modalidade == 'diadesorte') {
+      expect_type(da_sorteio$mes, "character")
+    } else if (modalidade == 'timemania') {
+      expect_type(da_sorteio$time, "character")
+    }
     for(n_col in 1:ndezenas_modalidades[[modalidade]]) {
       expect_type(da_sorteio[[paste0('dezena_', n_col)]], "integer")
     }
