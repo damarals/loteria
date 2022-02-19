@@ -5,7 +5,7 @@
 \alias{duplasena}
 \title{Dupla Sena.}
 \format{
-Um conjunto de dados com 14 variaveis: \code{data}, \code{concurso},
+Um conjunto de dados com 15 variaveis: \code{data}, \code{concurso}, \code{sorteio},
 \code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4}, \code{dezena_5},
 \code{dezena_6}, \code{dezena_7}, \code{dezena_8}, \code{dezena_9}, \code{dezena_10},
 \code{dezena_11} e \code{dezena_12}.

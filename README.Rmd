@@ -67,6 +67,8 @@ dplyr::glimpse(loteria::megasena)
 
 ### Exemplo de tabela
 
+Cinco últimos sorteios da **Megasena**:
+
 ```{r eval=TRUE, message=FALSE, warning=FALSE, include=TRUE}
 library(magrittr)
 dados_megasena %>% 

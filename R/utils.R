@@ -58,6 +58,12 @@ resultado_loteria <- function(concurso = NULL, modalidade) {
       rvest::html_elements(xpath = ".//div[@class='text-center']//strong") %>%
       rvest::html_text2()
     dados <- dplyr::mutate(dados, time = time, .before = dezena_1)
+  } else if (modalidade == 'duplasena') {
+    a <- dados[, 1:((ncol(dados) + 2)/2)]
+    b <- dados[, c(1, 2, ((ncol(dados) + 4)/2):ncol(dados))]
+    names(b) <- names(a)
+    dados <- dplyr::bind_rows(a, b) %>%
+      dplyr::mutate(sorteio = 1:2, .before = dezena_1)
   }
   dados
 }
@@ -144,7 +150,7 @@ dados_sorteios <- function(modalidade) {
                          quina = paste0('Di', strrep('i', 5)),
                          lotomania = paste0('Di', strrep('i', 20)),
                          timemania = paste0('Dic', strrep('i', 7)),
-                         duplasena = paste0('Di', strrep('i', 12)),
+                         duplasena = paste0('Dii', strrep('i', 6)),
                          diadesorte = paste0('Dic', strrep('i', 7)),
                          supersete = paste0('Di', strrep('i', 7)))
   readr::read_csv(
