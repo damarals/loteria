@@ -2,65 +2,74 @@
 #'
 #' Todos os sorteios da modalidade "Mega-Sena" das Loterias Caixa
 #'
-#' @format Um conjunto de dados com 8 variaveis: \code{date}, \code{id_concurso},
-#'   \code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4}, \code{sort_5} e
-#'   \code{sort_6}.
+#' @format Um conjunto de dados com 8 variaveis: \code{data}, \code{concurso},
+#'   \code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4}, \code{dezena_5} e
+#'   \code{dezena_6}.
 "megasena"
 
 #' Lotofacil.
 #'
 #' Todos os sorteios da modalidade "Lotofacil" das Loterias Caixa
 #'
-#' @format Um conjunto de dados com 17 variaveis: \code{date}, \code{id_concurso},
-#'   \code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4}, \code{sort_5},
-#'   \code{sort_6}, \code{sort_7}, \code{sort_8}, \code{sort_9}, \code{sort_10},
-#'   \code{sort_11}, \code{sort_12}, \code{sort_13}, \code{sort_14} e \code{sort_15}.
+#' @format Um conjunto de dados com 17 variaveis: \code{data}, \code{concurso},
+#'   \code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4}, \code{dezena_5},
+#'   \code{dezena_6}, \code{dezena_7}, \code{dezena_8}, \code{dezena_9}, \code{dezena_10},
+#'   \code{dezena_11}, \code{dezena_12}, \code{dezena_13}, \code{dezena_14} e \code{dezena_15}.
 "lotofacil"
 
 #' Quina.
 #'
 #' Todos os sorteios da modalidade "Quina" das Loterias Caixa
 #'
-#' @format Um conjunto de dados com 7 variaveis: \code{date}, \code{id_concurso},
-#'   \code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4} e \code{sort_5}.
+#' @format Um conjunto de dados com 7 variaveis: \code{data}, \code{concurso},
+#'   \code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4} e \code{dezena_5}.
 "quina"
 
 #' Lotomania.
 #'
 #' Todos os sorteios da modalidade "Lotomania" das Loterias Caixa
 #'
-#' @format Um conjunto de dados com 22 variaveis: \code{date}, \code{id_concurso},
-#'   \code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4}, \code{sort_5},
-#'   \code{sort_6}, \code{sort_7}, \code{sort_8}, \code{sort_9}, \code{sort_10},
-#'   \code{sort_11}, \code{sort_12}, \code{sort_13}, \code{sort_14}, \code{sort_15},
-#'   \code{sort_16}, \code{sort_17}, \code{sort_18}, \code{sort_19} e \code{sort_20}.
+#' @format Um conjunto de dados com 22 variaveis: \code{data}, \code{concurso},
+#'   \code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4}, \code{dezena_5},
+#'   \code{dezena_6}, \code{dezena_7}, \code{dezena_8}, \code{dezena_9}, \code{dezena_10},
+#'   \code{dezena_11}, \code{dezena_12}, \code{dezena_13}, \code{dezena_14}, \code{dezena_15},
+#'   \code{dezena_16}, \code{dezena_17}, \code{dezena_18}, \code{dezena_19} e \code{dezena_20}.
 "lotomania"
+
+#' Timemania.
+#'
+#' Todos os sorteios da modalidade "Timemania" das Loterias Caixa
+#'
+#' @format Um conjunto de dados com 22 variaveis: \code{data}, \code{concurso},
+#'   \code{time}, \code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4},
+#'   \code{dezena_5}, \code{dezena_6} e \code{dezena_7}.
+"timemania"
 
 #' Dupla Sena.
 #'
 #' Todos os sorteios da modalidade "Dupla Sena" das Loterias Caixa
 #'
-#' @format Um conjunto de dados com 14 variaveis: \code{date}, \code{id_concurso},
-#'   \code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4}, \code{sort_5},
-#'   \code{sort_6}, \code{sort_7}, \code{sort_8}, \code{sort_9}, \code{sort_10},
-#'   \code{sort_11} e \code{sort_12}.
+#' @format Um conjunto de dados com 14 variaveis: \code{data}, \code{concurso},
+#'   \code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4}, \code{dezena_5},
+#'   \code{dezena_6}, \code{dezena_7}, \code{dezena_8}, \code{dezena_9}, \code{dezena_10},
+#'   \code{dezena_11} e \code{dezena_12}.
 "duplasena"
 
 #' Dia de Sorte.
 #'
 #' Todos os sorteios da modalidade "Dia de Sorte" das Loterias Caixa
 #'
-#' @format Um conjunto de dados com 9 variaveis: \code{date}, \code{id_concurso},
-#'   \code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4}, \code{sort_5},
-#'   \code{sort_6} e\code{sort_7}.
+#' @format Um conjunto de dados com 9 variaveis: \code{data}, \code{concurso},
+#'   \code{mes}, \code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4},
+#'   \code{dezena_5}, \code{dezena_6} e \code{dezena_7}.
 "diadesorte"
 
 #' Super Sete.
 #'
 #' Todos os sorteios da modalidade "Super Sete" das Loterias Caixa
 #'
-#' @format Um conjunto de dados com 9 variaveis: \code{date}, \code{id_concurso},
-#'   \code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4}, \code{sort_5},
-#'   \code{sort_6} e\code{sort_7}.
+#' @format Um conjunto de dados com 9 variaveis: \code{data}, \code{concurso},
+#'   \code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4}, \code{dezena_5},
+#'   \code{dezena_6} e\code{dezena_7}.
 "supersete"
 

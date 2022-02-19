@@ -5,10 +5,10 @@
 \alias{duplasena}
 \title{Dupla Sena.}
 \format{
-Um conjunto de dados com 14 variaveis: \code{date}, \code{id_concurso},
-\code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4}, \code{sort_5},
-\code{sort_6}, \code{sort_7}, \code{sort_8}, \code{sort_9}, \code{sort_10},
-\code{sort_11} e \code{sort_12}.
+Um conjunto de dados com 14 variaveis: \code{data}, \code{concurso},
+\code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4}, \code{dezena_5},
+\code{dezena_6}, \code{dezena_7}, \code{dezena_8}, \code{dezena_9}, \code{dezena_10},
+\code{dezena_11} e \code{dezena_12}.
 }
 \usage{
 duplasena

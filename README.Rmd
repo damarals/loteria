@@ -30,6 +30,7 @@ __Caso você não utilize R__, é possível __fazer download das bases de dados_
   - *Dupla Sena* [Arquivo `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/duplasena.csv) 
   - *Lotofacil* [Arquivo `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/lotofacil.csv) 
   - *Lotomania* [Arquivo `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/lotomania.csv) 
+  - *Timemania* [Arquivo `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/timemania.csv) 
   - *Quina* [Arquivo `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/quina.csv)
   - *Super Sete* [Arquivo `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/supersete.csv) 
   - *Dia de Sorte* [Arquivo `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/diadesorte.csv) 

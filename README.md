@@ -31,6 +31,8 @@ dados** através dos seguintes links:
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/lotofacil.csv)
 -   *Lotomania* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/lotomania.csv)
+-   *Timemania* [Arquivo
+    `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/timemania.csv)
 -   *Quina* [Arquivo
     `.csv`](https://github.com/damarals/loteria/raw/master/inst/extdata/quina.csv)
 -   *Super Sete* [Arquivo

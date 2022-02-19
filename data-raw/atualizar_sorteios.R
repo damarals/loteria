@@ -1,7 +1,7 @@
 library(magrittr, include.only = "%>%")
 
 modalidades <- list(megasena = 'mega-sena', lotofacil = 'lotofacil', quina = 'quina',
-                    lotomania = 'lotomania', duplasena = 'dupla-sena',
+                    lotomania = 'lotomania', duplasena = 'dupla-sena', timemania = 'timemania',
                     diadesorte = 'dia-de-sorte', supersete = 'super-sete')
 
 purrr::walk(names(modalidades), function(modalidade) {
@@ -23,6 +23,7 @@ try(usethis::use_data(megasena, overwrite = TRUE), silent = TRUE)
 try(usethis::use_data(lotofacil, overwrite = TRUE), silent = TRUE)
 try(usethis::use_data(quina, overwrite = TRUE), silent = TRUE)
 try(usethis::use_data(lotomania, overwrite = TRUE), silent = TRUE)
+try(usethis::use_data(timemania, overwrite = TRUE), silent = TRUE)
 try(usethis::use_data(duplasena, overwrite = TRUE), silent = TRUE)
 try(usethis::use_data(diadesorte, overwrite = TRUE), silent = TRUE)
 try(usethis::use_data(supersete, overwrite = TRUE), silent = TRUE)

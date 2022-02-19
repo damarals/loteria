@@ -5,11 +5,11 @@
 \alias{lotomania}
 \title{Lotomania.}
 \format{
-Um conjunto de dados com 22 variaveis: \code{date}, \code{id_concurso},
-\code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4}, \code{sort_5},
-\code{sort_6}, \code{sort_7}, \code{sort_8}, \code{sort_9}, \code{sort_10},
-\code{sort_11}, \code{sort_12}, \code{sort_13}, \code{sort_14}, \code{sort_15},
-\code{sort_16}, \code{sort_17}, \code{sort_18}, \code{sort_19} e \code{sort_20}.
+Um conjunto de dados com 22 variaveis: \code{data}, \code{concurso},
+\code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4}, \code{dezena_5},
+\code{dezena_6}, \code{dezena_7}, \code{dezena_8}, \code{dezena_9}, \code{dezena_10},
+\code{dezena_11}, \code{dezena_12}, \code{dezena_13}, \code{dezena_14}, \code{dezena_15},
+\code{dezena_16}, \code{dezena_17}, \code{dezena_18}, \code{dezena_19} e \code{dezena_20}.
 }
 \usage{
 lotomania

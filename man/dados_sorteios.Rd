@@ -14,6 +14,7 @@ dados_sorteios(modalidade)
 \item lotofacil
 \item quina
 \item lotomania
+\item timemania
 \item duplasena
 \item diadesorte
 \item supersete

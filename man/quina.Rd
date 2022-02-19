@@ -5,8 +5,8 @@
 \alias{quina}
 \title{Quina.}
 \format{
-Um conjunto de dados com 7 variaveis: \code{date}, \code{id_concurso},
-\code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4} e \code{sort_5}.
+Um conjunto de dados com 7 variaveis: \code{data}, \code{concurso},
+\code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4} e \code{dezena_5}.
 }
 \usage{
 quina

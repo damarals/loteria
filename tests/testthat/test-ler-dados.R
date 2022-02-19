@@ -1,5 +1,5 @@
 test_that("Funcao dados_sorteios esta funcionando corretamente", {
-  ndezenas_modalidades <- list(megasena = 6, lotofacil = 15,
+  ndezenas_modalidades <- list(megasena = 6, lotofacil = 15, timemania = 7,
                                quina = 5, lotomania = 20, duplasena = 12,
                                diadesorte = 7, supersete = 7)
 
@@ -11,7 +11,8 @@ test_that("Funcao dados_sorteios esta funcionando corretamente", {
     expect_s3_class(da_sorteio, "tbl_df")
 
     # Testar numero de colunas
-    expect_equal(ncol(da_sorteio), ndezenas_modalidades[[modalidade]] + 2)
+    cols_restantes <- ifelse(modalidade %in% c('timemania', 'diadesorte'), 3, 2)
+    expect_equal(ncol(da_sorteio), ndezenas_modalidades[[modalidade]] + cols_restantes)
 
     # Testar valores faltantes (NA)
     expect_false(any(is.na(da_sorteio)))

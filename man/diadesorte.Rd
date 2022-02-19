@@ -5,9 +5,9 @@
 \alias{diadesorte}
 \title{Dia de Sorte.}
 \format{
-Um conjunto de dados com 9 variaveis: \code{date}, \code{id_concurso},
-\code{sort_1}, \code{sort_2}, \code{sort_3}, \code{sort_4}, \code{sort_5},
-\code{sort_6} e\code{sort_7}.
+Um conjunto de dados com 9 variaveis: \code{data}, \code{concurso},
+\code{mes}, \code{dezena_1}, \code{dezena_2}, \code{dezena_3}, \code{dezena_4},
+\code{dezena_5}, \code{dezena_6} e \code{dezena_7}.
 }
 \usage{
 diadesorte

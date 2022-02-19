@@ -14,6 +14,7 @@ resultado_loteria_todos(modalidade, min_concurso = 1, max_concurso = NULL)
 \item lotofacil
 \item quina
 \item lotomania
+\item timemania
 \item duplasena
 \item diadesorte
 \item supersete

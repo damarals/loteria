@@ -7,6 +7,7 @@
 #'   * lotofacil
 #'   * quina
 #'   * lotomania
+#'   * timemania
 #'   * duplasena
 #'   * diadesorte
 #'   * supersete
@@ -18,7 +19,7 @@
 #' resultado_loteria(concurso = 1, modalidade = 'megasena')
 resultado_loteria <- function(concurso = NULL, modalidade) {
   modalidades <- list(megasena = 'mega-sena', lotofacil = 'lotofacil', quina = 'quina',
-                      lotomania = 'lotomania', duplasena = 'dupla-sena',
+                      lotomania = 'lotomania', duplasena = 'dupla-sena', timemania = 'timemania',
                       diadesorte = 'dia-de-sorte', supersete = 'super-sete')
   param_final <- ifelse(is.null(concurso), '', glue::glue('?drawNumber={concurso}'))
   u <- glue::glue('https://www.megaloterias.com.br/{modalidades[[modalidade]]}/resultados{param_final}')
@@ -41,12 +42,24 @@ resultado_loteria <- function(concurso = NULL, modalidade) {
                                         ".//div[@class='result__tens-grid']")) %>%
     rvest::html_text2() %>% paste0(collapse = '\n')
   n_dezenas <- stringr::str_count(dezenas, "\n") + 1
-  tibble::tibble(
+  dados <- tibble::tibble(
     data = lubridate::dmy(data),
     concurso = as.integer(concurso),
     dezena = dezenas) %>%
     tidyr::separate(dezena, sep = "\n", into = paste0('dezena_', 1:n_dezenas)) %>%
     dplyr::mutate_at(dplyr::vars(dplyr::contains('dezena')), as.integer)
+  if(modalidade == 'diadesorte') {
+    mes <- page_html %>%
+      rvest::html_elements(xpath = ".//div[@class='text-center']//strong") %>%
+      rvest::html_text2()
+    dados <- dplyr::mutate(dados, mes = mes, .before = dezena_1)
+  } else if (modalidade == 'timemania') {
+    time <- page_html %>%
+      rvest::html_elements(xpath = ".//div[@class='text-center']//strong") %>%
+      rvest::html_text2()
+    dados <- dplyr::mutate(dados, time = time, .before = dezena_1)
+  }
+  dados
 }
 
 #' Obtem o resultado de todos os sorteios até a data atual
@@ -57,6 +70,7 @@ resultado_loteria <- function(concurso = NULL, modalidade) {
 #'   * lotofacil
 #'   * quina
 #'   * lotomania
+#'   * timemania
 #'   * duplasena
 #'   * diadesorte
 #'   * supersete
@@ -88,6 +102,7 @@ resultado_loteria_todos <- function(modalidade, min_concurso = 1,
 #'   * lotofacil
 #'   * quina
 #'   * lotomania
+#'   * timemania
 #'   * duplasena
 #'   * diadesorte
 #'   * supersete
@@ -113,6 +128,7 @@ necessario_atualizar <- function(modalidade) {
 #'   * lotofacil
 #'   * quina
 #'   * lotomania
+#'   * timemania
 #'   * duplasena
 #'   * diadesorte
 #'   * supersete
@@ -127,8 +143,9 @@ dados_sorteios <- function(modalidade) {
                          lotofacil = paste0('Di', strrep('i', 15)),
                          quina = paste0('Di', strrep('i', 5)),
                          lotomania = paste0('Di', strrep('i', 20)),
+                         timemania = paste0('Dic', strrep('i', 7)),
                          duplasena = paste0('Di', strrep('i', 12)),
-                         diadesorte = paste0('Di', strrep('i', 7)),
+                         diadesorte = paste0('Dic', strrep('i', 7)),
                          supersete = paste0('Di', strrep('i', 7)))
   readr::read_csv(
     glue::glue("https://github.com/damarals/loteria/raw/master/inst/extdata/{modalidade}.csv"),
