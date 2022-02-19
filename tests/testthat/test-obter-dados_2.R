@@ -18,7 +18,8 @@ test_that("Funcao resultado_loteria_todos esta funcionando corretamente", {
     expect_false(any(is.na(da_sorteios)))
 
     # Testar numero de linhas
-    expect_equal(nrow(da_sorteios), 3)
+    n_linhas <- ifelse(modalidade == 'duplasena', 6, 3)
+    expect_equal(nrow(da_sorteios), n_linhas)
 
     # Testar classe das variáveis
     expect_s3_class(da_sorteios$data, "Date")

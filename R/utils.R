@@ -120,7 +120,7 @@ resultado_loteria_todos <- function(modalidade, min_concurso = 1,
 #' necessario_atualizar(modalidade = 'megasena')
 necessario_atualizar <- function(modalidade) {
   max_concurso_online <- resultado_loteria(modalidade = modalidade) %>%
-    magrittr::extract2('concurso')
+    magrittr::extract2('concurso') %>% dplyr::first()
   max_concurso_offline <- dados_sorteios(modalidade) %>%
     dplyr::pull(concurso) %>% max
   max_concurso_online != max_concurso_offline
